@@ -8,28 +8,27 @@
           <div fxFlex>
             <form class="example-form">
               <mat-form-field class="full-width">
-                <input matInput type="number" placeholder="Number of random strings" value="5" min="1" max="200">
+                <input matInput type="number" placeholder="Number of random strings" value="5" min="1" max="200" #length>
               </mat-form-field>
               <mat-form-field class="full-width">
-                <input matInput type="number" placeholder="String size" value="20" min="1" max="255">
+                <input matInput type="number" placeholder="String size" value="20" min="1" max="255" #size>
               </mat-form-field>
             </form>
-            <mat-slide-toggle [checked]="true">Upper case</mat-slide-toggle>
+            <mat-slide-toggle [checked]="true" #upperCase>Upper case</mat-slide-toggle>
             <p></p>
-            <mat-slide-toggle [checked]="true">Lower case</mat-slide-toggle>
+            <mat-slide-toggle [checked]="true" #lowerCase>Lower case</mat-slide-toggle>
             <p></p>
-            <mat-slide-toggle [checked]="true">Digits</mat-slide-toggle>
+            <mat-slide-toggle [checked]="true" #digits>Digits</mat-slide-toggle>
             <p></p>
-            <mat-slide-toggle [checked]="false">Special charactes</mat-slide-toggle>
+            <mat-slide-toggle [checked]="false" #specialCharacters>Special charactes</mat-slide-toggle>
             <p></p>
-            <button mat-raised-button color="primary">GENERATE</button>
+            <button mat-raised-button color="primary" (click)="generateRandomString({length: length.value,
+            size: size.value, upperCase: upperCase.checked, lowerCase: lowerCase.checked, digits: digits.checked, specialCharacters: specialCharacters.checked})">GENERATE</button>
           </div>
           <div fxFlex>
             <h1>Random strings:</h1>
-            <mat-list role="list">
-              <mat-list-item role="listitem">WYvXFSvO5OVTQA34op3zRjI3zdVkEXetM4RfX51cpL6fiWFV7NiD6JDiwnQmOplO</mat-list-item>
-              <mat-list-item role="listitem">Cg9sy8jkg5NUpIhylkOkKn1KueZi68uC9sZQwhfMnYrNgiP3tNQuRJUSGoN50rl4</mat-list-item>
-              <mat-list-item role="listitem">XhCsKrLL6M4nX2ZGbvlBuSIxRP1gVvd3gV4XCqpoSLhjW8dsndo9A2bW3NsjgcFA</mat-list-item>
+            <mat-list role="list" *ngFor="let item of randomStrings">
+              <mat-list-item role="listitem">{{ item.randomString }}</mat-list-item>
             </mat-list>
           </div>
         </div>

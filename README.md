@@ -54,7 +54,7 @@ server {
 +------------------------+
 |                        |
 |  spring-boot back-end  +-+
-|  litening at port 8080 | |
+| listening at port 8080 | |
 |                        | |    +----------------------------------------------+
 +------------------------+ +--> |    nginx reverse proxy with url rewrite      |     
                                 |                                              | <---> web browser
@@ -64,7 +64,7 @@ server {
 +------------------------+ |
 |                        | |
 |       angular app      +-+
-|  litening at port 4200 |
+| listening at port 4200 |
 |                        |
 +------------------------+
 ```

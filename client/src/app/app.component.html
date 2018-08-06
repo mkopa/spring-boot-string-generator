@@ -28,7 +28,7 @@
           <div fxFlex>
             <h1>Random strings:</h1>
             <mat-list role="list" *ngFor="let item of randomStrings">
-              <mat-list-item role="listitem">
+              <mat-list-item role="listitem" style="font-family: monospace">
                 <button mat-icon-button (click)="copyText(item.randomString)">
                   <mat-icon matTooltip="Copy to clipboard">file_copy</mat-icon>
                 </button>
@@ -39,5 +39,4 @@
       </div>
     </mat-card-content>
   </mat-card>
-
 </ng-container>

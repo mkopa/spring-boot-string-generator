@@ -24,7 +24,8 @@ export class AppComponent {
   generateRandomString( parameters ): void {
     this.http.post('/api/random', parameters)
       .subscribe(data => {
-          this.randomStrings = data;
+          const mergedRandomString = data.concat(this.randomStrings)
+          this.randomStrings = mergedRandomString;
         },
         err => {
           console.log(`Error occured ${err}`);

@@ -53,18 +53,17 @@ server {
 ```
 +------------------------+
 |                        |
-|  spring-boot back-end  +-+
-| listening at port 8080 | |
-|                        | |    +----------------------------------------------+
-+------------------------+ +--> |    nginx reverse proxy with url rewrite      |     
-                                |                                              | <---> web browser
-                                |   all traffic to /api going to spring-boot   |
-                           +--> |       the rest of going to angular app       |
-                           |    +----------------------------------------------+        
-+------------------------+ |
-|                        | |
-|       angular app      +-+
+|  spring-boot back-end  +--+
+| listening at port 8080 |  |    +----------------------------------------------+
+|                        |  |    |                                              |
++------------------------+  +--> |    nginx reverse proxy with url rewrite      |     
+                                 |                                              | <---> web browser
+                                 |   all traffic to /api going to spring-boot   |
+                            +--> |       the rest of going to angular app       |
++------------------------+  |    |                                              |
+|                        |  |    +----------------------------------------------+
+|       angular app      +--+
 | listening at port 4200 |
 |                        |
-+------------------------+
++------------------------+     
 ```

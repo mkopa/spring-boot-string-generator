@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from "@angular/flex-layout";
-import { ClipboardModule } from 'ngx-clipboard';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -55,7 +54,6 @@ import { AppComponent, CopiedComponent } from './app.component';
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ClipboardModule,
     MatButtonModule,
     MatCheckboxModule,
     MatFormFieldModule,

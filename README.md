@@ -1,8 +1,8 @@
 ## Random String Generator
-##### Use a MySQL database in a Spring Boot Web Application through Hibernate and Kafka
+#### Use a MySQL database in a Spring Boot Web Application through Hibernate and Kafka
 
 Demo: 
-http://demo
+http://35.234.86.157/
 
 ### Usage
 

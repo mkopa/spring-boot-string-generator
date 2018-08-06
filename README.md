@@ -27,3 +27,44 @@ Go on the project's root folder, then type:
 
     $ mvn spring-boot:run
 
+#### Nginx reverse proxy configuration
+
+```
+server {
+  listen 80;
+ 
+  location  / {
+    rewrite /(.*) /$1  break;
+    proxy_pass         http://localhost:4200;
+    proxy_redirect     off;
+    proxy_set_header   Host $host;
+  }
+
+  location  /api {
+    rewrite /api/(.*) /$1  break;
+    proxy_pass         http://localhost:8080;
+    proxy_redirect     off;
+    proxy_set_header   Host $host;
+  }  
+}
+
+```
+
+```
++------------------------+
+|                        |
+|  spring-boot back-end  +-+
+|  litening at port 8080 | |
+|                        | |    +----------------------------------------------+
++------------------------+ +--> |    nginx reverse proxy with url rewrite      |     
+                                |                                              | <---> web browser
+                                |   all traffic to /api going to spring-boot   |
+                           +--> |       the rest of going to angular app       |
+                           |    +----------------------------------------------+        
++------------------------+ |
+|                        | |
+|       angular app      +-+
+|  litening at port 4200 |
+|                        |
++------------------------+
+```
